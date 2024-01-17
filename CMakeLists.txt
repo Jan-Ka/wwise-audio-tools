@@ -15,6 +15,7 @@ include_directories(
     libogg/include
     libvorbis/include
     ${CMAKE_CURRENT_BINARY_DIR}/libogg/include
+    cxxopts/include
   )
 
 add_definitions(-DKS_STR_ENCODING_NONE)
@@ -31,6 +32,7 @@ set(SOURCE
     src/wwtools/bnk.cpp
     src/kaitai/kaitaistream.cpp
     src/kaitai/structs/bnk.cpp
+    src/kaitai/structs/vlq.cpp
     src/kaitai/structs/w3sc.cpp
     src/kaitai/structs/wem.cpp
   )
@@ -47,6 +49,7 @@ endif()
 
 add_subdirectory(libogg EXCLUDE_FROM_ALL)
 add_subdirectory(libvorbis EXCLUDE_FROM_ALL)
+add_subdirectory(cxxopts EXCLUDE_FROM_ALL)
 
 add_library(wwtools-shared-lib SHARED ${SOURCE})
 add_library(wwtools-static-lib STATIC ${SOURCE})
